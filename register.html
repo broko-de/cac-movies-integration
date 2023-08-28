@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./static/img/favicon.ico" type="image/x-icon">
+    <title>Registro - CAC-Movies</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="/">
+                <span class="logo-texto">
+                    CAC - Movies
+                </span>
+            </a>
+        </div>
+    </nav>
+    <main>
+        <section>
+            <h2>Registro</h2>
+            <form action="#" id="formRegister" method="GET">
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" required name="firstname" id="firstname">
+                </div>
+                <div id="error-firstname"></div>
+                <div>
+                    <label>Apellido</label>
+                    <input type="text" required name="lastname" id="lastname">
+                </div>
+                <div id="error-lastname"></div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" required name="email" id="email">
+                </div>
+                <div id="error-email"></div>
+                <div>
+                    <label>Contraseña</label>
+                    <input type="password" required name="password" id="password">
+                </div>
+                <div id="error-password"></div>
+                <div>
+                    <label id="label-birthdate">Fecha de Nacimiento</label>
+                    <input type="date" name="birthdate" id="birthdate">
+                </div>
+                <div>
+                    <select name="country" id="country" >
+                        <option value="">País</option>
+                        <option value="AR">Argentina</option>
+                        <option value="BO">Bolivia</option>
+                        <option value="BR">Brasil</option>
+                        <option value="CH">Chile</option>
+                        <option value="CO">Colombia</option>
+                        <option value="EC">Ecuador</option>
+                        <option value="PY">Paraguay</option>
+                        <option value="PE">Perú</option>
+                        <option value="UY">Uruguay</option>
+                        <option value="VE">Venezuela</option>
+                    </select>
+                </div>
+                <div> 
+                    <div>
+                        <input type="checkbox" id="terms">
+                        <label for="terms">Acepto términos y condiciones</label>
+                    </div>
+                </div>
+                <button type="submit">Registrarse</button>
+                <div> 
+                    <a href="#">Necesitas ayuda?</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
