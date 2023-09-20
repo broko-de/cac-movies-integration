@@ -1,7 +1,7 @@
 # cac-video
-Proyecto de ejemplo para la integración de contenidos de cursos Fullstack de Codo a Codo
+Es el respositorio en el que podemos ir trabajando para generar la versión final del proyecto integral de fullstack codo a codo
 
-[Visualización del proyecto](https://broko-de.github.io/cac-movies-integration/)
+[Repositorio del proyecto publico](https://github.com/broko-de/cac-movies)
+[Visualización del proyecto](https://broko-de.github.io/cac-movies/)
 
-Desestimar este cambio. Gracias.
 
