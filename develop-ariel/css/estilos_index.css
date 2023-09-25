@@ -1,0 +1,172 @@
+body {
+    margin:0px;
+    padding: 0px;;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #191D88;
+    color: #FFC436;
+    padding: 10px;
+    grid-area: encabezado;
+}
+
+.encabezado img {
+    width: 140px;
+    margin: 0px 15px;
+}
+
+.encabezado-centro h1 {
+    font-size: 3.5vw;
+}
+
+/*------------------------------------------------*/
+/* Estilos del menú
+/*------------------------------------------------*/
+.menu {
+    background-color: #1450A3;
+    color:#FFC436;
+    text-align: center;
+    grid-area: menu;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0px;
+}
+
+.menu ul li {
+    display: inline-block;
+}
+
+.menu li a {
+    color:#FFC436;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu li a:hover {
+    background-color: #191D88;
+    animation: 0.5s infinite boton-menu;
+}
+
+@keyframes boton-menu {
+    0% { transform: scaleX(1.0);}
+    50% { transform: scaleX(1.15);}  
+    100% { transform: scaleX(1.0);}  
+}
+
+/*------------------------------------------------*/
+/* Estilos de las peliculas
+/*------------------------------------------------*/
+.contenedor-peli {
+    display: flex;
+    padding: 10px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.contenedor-peli div {
+    margin: 10px;
+}
+.contenedor-peli img {
+    height: 250px;
+}
+
+/*------------------------------------------------*/
+/* Estilos del footer
+/*------------------------------------------------*/
+.pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    background-color: #191D88;
+    color: #FFC436;
+    grid-area: pie;
+}
+
+.iconos {
+    display: flex;
+    column-gap: 12px;
+}
+
+.iconos a {
+    color:#FFC436;
+    font-size: 24px;
+}
+
+.articulo1 {
+    grid-area: articulo1;
+}
+.articulo2 {
+    grid-area: articulo2;
+}
+
+/*------------------------------------------------*/
+/* Estilos del contenedor grid pantallas muy pequeñas
+/*------------------------------------------------*/
+.contenedor {
+    display: grid;
+    grid-template:  repeat(5, auto) / 100% ;
+    grid-template-areas: "encabezado" 
+                         "menu"
+                         "articulo1"
+                         "articulo2"
+                         "pie"   ;
+}
+
+/*------------------------------------------------*/
+/* Estilos del contenedor grid para pantallas small
+/*------------------------------------------------*/
+@media (min-width: 720px){
+    .contenedor {
+        display: grid;
+        grid-template:  repeat(4, auto) / 50% 50% ;
+        grid-template-areas: "encabezado encabezado" 
+                             "menu menu"
+                             "articulo1 articulo2"
+                             "pie pie"   ;
+    }
+
+    .contenedor-peli {
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .contenedor-peli div p {
+        font-size: 2.0vw;
+    }
+
+    .encabezado-centro h1 {
+        font-size: 36px;
+    }
+}
+
+/*------------------------------------------------*/
+/* Estilos del contenedor grid para medias
+/*------------------------------------------------*/
+@media (min-width: 920px){
+
+    .contenedor-peli {
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .contenedor-peli div p {
+        font-size: 1.6vw;
+    }
+
+    .contenedor-peli img {
+        height: 350px;
+    }
+
+    .encabezado-centro h1 {
+        font-size: 48px;
+    }
+}
+
