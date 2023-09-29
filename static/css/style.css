@@ -3,12 +3,22 @@ primary: var(--primary-color)
 secondary: var(--secondary-color)
 third: var(--third-color)
 */
-:root{
+/* :root{
     --bg-color:#2a2a2a;
     --primary-color:#b1dd00;
     --secondary-color:#143954;
     --third-color:#62828f;
+    --third-bis-color:#62828ff2;
     --bg-input-color:rgba(255,255,255,0.1);
+} */
+
+:root{
+    --bg-color:#181419;
+    --primary-color:#9f3647;
+    --secondary-color:#ffc098;
+    --third-color:#db4648;
+    --third-bis-color:#db4648f2;
+    --bg-input-color:#4f31572c;
 }
 
 *{
@@ -74,7 +84,7 @@ nav{
 }
 
 .nav-links a:hover{
-    color: var(--primary-color) ;
+    color: var(--secondary-color) ;
 }
 
 .btn-cac{
@@ -165,7 +175,7 @@ nav{
     justify-items: center;
     row-gap: 20px;
 }
-
+/* 
 .movies-grid:hover .movie-item {
     opacity: 0.3;
 }
@@ -174,7 +184,7 @@ nav{
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
     opacity: 1;
-}
+} */
 
 .movie-item{
     border-radius: 20px;
@@ -202,7 +212,7 @@ nav{
     object-fit: cover;
 }
 
-.movie-item-detail {
+.movie-item-detail1 {
     align-items: flex-start;
     background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
     bottom: 0;
@@ -219,9 +229,25 @@ nav{
     top: 0;
 }
 
-  
+.movie-item-detail {
+    bottom: -100%;
+    padding: 30px;
+    max-height: 100%;
+    overflow-y: auto;
+    line-height: 15px;
+    position: absolute;
+    background-color: var(--third-bis-color);
+    box-sizing: border-box;
+    transition: bottom 0.4s ease-in-out;
+    width: 100%;
+}
+
+.movie-item:hover{
+    opacity: 0.9;
+}
+
 .movie-item:hover .movie-item-detail {
-    opacity: 1;
+    bottom: 0;
 }
   
 .movie-item-detail-title {
@@ -325,12 +351,12 @@ nav{
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: var(--third-color); 
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: var(--third-bis-color); 
   }
 
 .d-form{
@@ -363,7 +389,7 @@ nav{
 
 #footer a:hover {
     text-decoration: underline;
-    color:var(--primary-color);
+    color:var(--secondary-color);
 }
 
 /* PANTALLAS GRANDES */
