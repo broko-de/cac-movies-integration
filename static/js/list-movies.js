@@ -40,7 +40,7 @@ fetch(`${URLSERVER}/movie/top_rated`, options)
   const renderPopular = (movie) => {
     let html = `
       <div class="movie-item">
-        <a href="detail-movie.html">
+        <a href="./templates/detail-movie.html">
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="" class="movie-item-img">
             <div class="movie-item-detail">
                 <p class="movie-item-detail-title">${movie.title}</p>
