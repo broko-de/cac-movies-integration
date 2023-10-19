@@ -1,67 +1,96 @@
-const URLSERVER = 'https://api.themoviedb.org/3';
+/**
+ * Funcion que permite crear un elemento <div> el contenedor de peliculas
+ * por medio de la creación de nodos.
+ */
+function showMoviesDiv(){
+  let movies = JSON.parse(localStorage.getItem('movies'));
+  const divMovies = document.querySelector('#list-div-movies');
+  divMovies.innerHTML='';
+  movies.forEach((movie, index) => {
+    const divContainer = document.createElement('div');
+    
+    const h3Info = document.createElement('h3');
+    h3Info.innerText=`${movie.title} - ${movie.genre}`;
+    divContainer.appendChild(h3Info);
+    
+    const button =  document.createElement('button');
+    button.innerHTML='<i class="fa fa-trash" >';
+    button.classList.add('btn-cac');
+    button.addEventListener('click',()=>{
+      deleteMovie(index);
+    });
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYTJjYTAwZDYxZWIzOTEyYjZlNzc4MDA4YWQ3ZmNjOCIsInN1YiI6IjYyODJmNmYwMTQ5NTY1MDA2NmI1NjlhYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4MJSPDJhhpbHHJyNYBtH_uCZh4o0e3xGhZpcBIDy-Y8'
-  }
-};
+    divContainer.appendChild(button); 
+    divContainer.classList.add('item-movie');
 
-const renderTopRated = (movie) => {
-  let html = `
-      <div class="movie-item-v2">
-        <div class="wrapper">
-            <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}" alt="" class="movie-item-img-v2">
-        </div>
-        <div class="movie-item-detail-v2">
-            <p class="movie-item-detail-title-v2">${movie.title}</p>
-            <p class="movie-item-detail-subtitle-v2">${movie.release_date} / ${movie.vote_average} ⭐</p>
-        </div>
-      </div>
-  `
-  return html;
+    divMovies.appendChild(divContainer);
+  });
 }
 
-fetch(`${URLSERVER}/movie/top_rated`, options)
-  .then(response => response.json())
-  .then(response => {
-          console.log(response)
-          let movies = response.results;
-          let divTopRated = document.querySelector('#list-top-rated');
-          movies.forEach(movie => {
-            let html = renderTopRated(movie);
-            divTopRated.insertAdjacentHTML('beforeend',html)
-          });
-        }
-      )
-  .catch(err => console.error(err));
+/**
+ * Funcion que permite crear un elemento <tr> para la tabla de peliculas
+ * por medio del uso de template string de JS.
+ */
+function showMoviesTable(){
+  let movies = JSON.parse(localStorage.getItem('movies'));
+  const tableMovies = document.querySelector('#list-table-movies tbody');
+  tableMovies.innerHTML='';
+  movies.forEach((movie, index) => {
+    let tr = `<tr>
+                  <td>${movie.title}</td>
+                  <td>${movie.genre}</td>
+                  <td><button class="btn-cac" onclick='deleteMovie(${index})'><i class="fa fa-trash" ></button></i></td>
+                </tr>`;
+    tableMovies.insertAdjacentHTML("beforeend",tr);
+  });
+}
 
-  const renderPopular = (movie) => {
-    let html = `
-      <div class="movie-item">
-        <a href="./templates/detail-movie.html">
-            <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="" class="movie-item-img">
-            <div class="movie-item-detail">
-                <p class="movie-item-detail-title">${movie.title}</p>
-                <p class="movie-item-detail-subtitle">${movie.release_date} / ${movie.vote_average} ⭐</p>
-            </div>
-        </a>
-      </div>
-    `
-    return html;
+/**
+ * funcion que permite agregar una pelicula al listado de peliculas
+ * almacenado en el localstorage
+ */
+function addMovie(){
+  const inputTitle = document.querySelector('#title');
+  const inputGenre = document.querySelector('#genre');
+
+  if(inputTitle.value !== '' && inputGenre.value !==''){
+    //Obtiene el listado de peliculas del localstorage, en caso de no existir crea una array vacio
+    let movies = JSON.parse(localStorage.getItem('movies')) || [];
+    let newMovie = {
+      title: inputTitle.value,
+      genre: inputGenre.value,
+    }
+    movies.push(newMovie);
+    //Se actualiza el array de peliculas en el localstorage
+    localStorage.setItem('movies',JSON.stringify(movies));
+    showMoviesTable();
+    showMoviesDiv();
+    //Limpieza de los campos del formulario
+    inputTitle.value='';
+    inputGenre.value='';
   }
-  
-  fetch(`${URLSERVER}/movie/popular`, options)
-    .then(response => response.json())
-    .then(response => {
-            console.log(response)
-            let movies = response.results;
-            let divPopular = document.querySelector('#list-popular');
-            for (let i = 0; i < 8; i++) {
-              let html = renderPopular(movies[i]);
-              divPopular.insertAdjacentHTML('beforeend',html)
-            }
-          }
-        )
-    .catch(err => console.error(err));
+}
+
+/**
+ * Function que permite eliminar una pelicula del array del localstorage
+ * de acuedo al indice del mismo
+ * @param {number} index posición del array que se va a eliminar
+ */
+function deleteMovie(index){
+  let movies = JSON.parse(localStorage.getItem('movies'));
+  if(movies[index]!=='undefined'){
+    movies.splice(index,1);
+    localStorage.setItem('movies',JSON.stringify(movies));
+    showMoviesTable();
+    showMoviesDiv();
+  }
+}
+
+//Agregar eventos a elementos una vez que contenido haya sido cargado en el DOM
+document.addEventListener('DOMContentLoaded', function() {
+  const btnAddMovie = document.querySelector('#btn-add-movie');
+  btnAddMovie.addEventListener('click',addMovie);
+});
+
+showMoviesDiv();
+showMoviesTable();
