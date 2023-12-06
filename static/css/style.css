@@ -25,11 +25,11 @@ third: var(--third-color)
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 body{
     background-color: var(--bg-color);
-    font-family: 'Nunito', sans-serif;
 }
 
 a{
@@ -180,6 +180,12 @@ nav{
     margin: 30px 0px;
 }
 
+.popular-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
 .movies-grid{
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -265,6 +271,7 @@ nav{
 .movie-item-detail-title {
     color: white;
     margin: 5px 0px 0px 0px;
+    line-height: 1.2em;
 }
   
 .movie-item-detail-subtitle {
@@ -325,7 +332,7 @@ nav{
 }
 
 .movie-item-detail-v2 {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

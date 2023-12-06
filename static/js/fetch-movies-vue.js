@@ -22,7 +22,7 @@ const moviesGridComponent = {
                 </div>
             </div>
             <br>
-            <div>
+            <div class="popular-buttons">
                 <button class='btn-cac' v-on:click="fetchPrevMovies()">Anterior</button>
                 <button class='btn-cac' v-on:click="fetchNextMovies()">Siguiente</button>
             </div> 
