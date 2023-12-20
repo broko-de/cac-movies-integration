@@ -104,6 +104,7 @@ nav{
     padding: 10px;
     border-radius: 10px;
     color:#FFF;
+    cursor: pointer;
 }
 
 .btn-cac:hover{
@@ -121,7 +122,7 @@ nav{
 
 .container{
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 120px auto;
 }
 
 .d-flex{
@@ -177,7 +178,7 @@ nav{
 }
 
 #popular h2,#top-rated h2{
-    margin: 30px 0px;
+    margin: 50px 0px;
 }
 
 .popular-buttons{
@@ -414,6 +415,11 @@ nav{
 .img-list{
     width: 25%;
 }
+
+.movie-detail-poster img{
+    width: 300px;
+}
+
 /* PANTALLAS GRANDES */
 @media screen and (max-width:1920px) {
     

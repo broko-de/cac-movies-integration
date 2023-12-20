@@ -13,7 +13,7 @@ const moviesGridComponent = {
             <div id="list-popular" class="movies-grid">
                 <div class="movie-item" v-for="movie in movies">
                     <a href="./templates/detail-movie.html">
-                        <img v-bind:src="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" alt="" class="movie-item-img">
+                        <img v-bind:src="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" v-bind:alt="movie.title" class="movie-item-img">
                         <div class="movie-item-detail">
                             <p class="movie-item-detail-title">{{movie.title}}</p>
                             <p class="movie-item-detail-subtitle">{{movie.release_date}} - {{movie.vote_average}}</p>                            
@@ -69,7 +69,7 @@ const moviesFlexComponent = {
             <div id="list-top-rated" class="movies-flex movies-scroller">
                 <div class="movie-item-v2" v-for="movie in movies">
                     <div class="wrapper">
-                        <img v-bind:src="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" alt="" class="movie-item-img-v2">                        
+                        <img v-bind:src="'https://image.tmdb.org/t/p/w500/'+movie.poster_path" class="movie-item-img-v2" v-bind:alt="movie.title">                        
                     </div>
                     <div class="movie-item-detail-v2">
                         <p class="movie-item-detail-title-v2">{{movie.title}}</p>

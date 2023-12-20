@@ -100,8 +100,8 @@ form .form-control {
     position: absolute;
     left: 20px;
     top: 50%;
-    transform: translateY(-50%);
-    font-size: 1rem;
+    transform: translateY(-130%);
+    font-size: 0.75rem;
     pointer-events: none;
     color: #8c8c8c;
     transition: all 0.1s ease;
@@ -109,11 +109,6 @@ form .form-control {
 
 #birthdate{
     padding:16px 20px 0px;
-}
-
-#label-birthdate{
-    transform: translateY(-130%);
-    font-size: 0.75rem;
 }
 
 .form-control input:is(:focus, :valid)~label {
