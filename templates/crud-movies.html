@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/list-movies.css">
+    <link rel="stylesheet" href="../static/css/crud-movies.css">
     <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
 
 </head>
@@ -42,31 +42,41 @@
         </nav>
     </header>
     <main>
-        <section id="form" >
-            <div class="container d-flex">
-                <div class="form-control d-flex-column">
-                    <label for="">Título</label>
-                    <input type="text" class="input-search" name="title" id="title">
+        <section id="form" class="container "> 
+            <h2 class="search-title">Gestión de peliculas</h2>
+            <p class="description" >En esta sección se podra llevar a cabo la gestión de las peliculas del portal</p>
+            <form action="" enctype="multipart/form-data" id="form-movie">
+                <div class="d-flex">
+                        <div class="form-control d-flex-column">
+                            <label for="">Título</label>
+                            <input type="text" class="input-search" name="title" id="title">
+                        </div>
+                        <div class="form-control d-flex-column">
+                            <label for="">Director</label>
+                            <input type="text" class="input-search" name="director" id="director">
+                        </div>
+                        <div class="form-control d-flex-column">
+                            <label for="">Fecha Lanzamiento</label>
+                            <input type="date" class="input-search" name="release_date" id="release-date">
+                        </div>
+                        <div class="form-control d-flex-column">
+                            <label for="">Banner</label>
+                            <input type="url" class="input-search" name="banner" id="banner-form">
+                        </div>
+                        <input type="hidden"  name="id" id="id-movie">
+                        <button class="btn-cac" type="button" id="btn-save-movie">Agregar</button>
                 </div>
-                <div class="form-control d-flex-column">
-                    <label for="">Género</label>
-                    <select name="genre" id="genre" class="form-select">
-                        <option value="">--Seleccione--</option>
-                        <option value="Terror">Terror</option>
-                        <option value="Comedia">Comedia</option>
-                        <option value="Superheroes">Superheroes</option>
-                    </select>
-                </div>
-                <button class="btn-cac" id="btn-add-movie">Agregar</button>
-            </div>
+            </form>
         </section>
         <section id="list" class="container">
-            <h2 class="search-title">Listado de peliculas</h2>
+            <h3 class="subtitle">Listado de peliculas</h3>
             <table id="list-table-movies" class="table">
                 <thead>
                     <tr>
                         <th>Título</th>
-                        <th>Género</th>
+                        <th>Director</th>
+                        <th>Fecha Lanzamiento</th>
+                        <th>Banner</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -87,8 +97,9 @@
         <a href="">Preguntas Frecuentes</a>
         <a href="">Ayuda</a>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../static/js/index.js"></script>
-    <script src="../static/js/list-movies.js"></script>
+    <script src="../static/js/crud-movies.js"></script>
 
 </body>
 </html>

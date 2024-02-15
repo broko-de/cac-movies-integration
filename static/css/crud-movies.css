@@ -1,5 +1,6 @@
-#form{
-    margin-top: 80px;
+.description{
+    color: white;
+    margin: 20px 0px;
 }
 
 #form .d-flex{
@@ -45,6 +46,10 @@
     color:#2a2a2a;
 }
 
+.subtitle{
+    color: white;
+    font-size: 1.5vw;
+}
 
 #list{
     display: flex;
