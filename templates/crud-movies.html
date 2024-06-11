@@ -45,7 +45,7 @@
         <section id="form" class="container "> 
             <h2 class="search-title">Gestión de peliculas</h2>
             <p class="description" >En esta sección se podra llevar a cabo la gestión de las peliculas del portal</p>
-            <form action="" enctype="multipart/form-data" id="form-movie">
+            <form action="" id="form-movie">
                 <div class="d-flex">
                         <div class="form-control d-flex-column">
                             <label for="">Título</label>
@@ -63,7 +63,7 @@
                             <label for="">Banner</label>
                             <input type="url" class="input-search" name="banner" id="banner-form">
                         </div>
-                        <input type="hidden"  name="id" id="id-movie">
+                        <input type="hidden"  name="id_movie" id="id-movie">
                         <button class="btn-cac" type="button" id="btn-save-movie">Agregar</button>
                 </div>
             </form>
@@ -82,15 +82,8 @@
                 </thead>
                 <tbody>
                 </tbody>
-            </table>
-            <br>
-            <br>
-            <br>
-            <div id="list-div-movies">
-
-            </div>
+            </table>            
         </section>
-
     </main>
     <footer id="footer">
         <a href="">Términos y condiciones</a>
